@@ -1,11 +1,13 @@
-// import { useNavigate } from "react-router-dom";
+'use client';
+
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Home, ArrowLeft, Heart, Stethoscope } from "lucide-react";
 
 // Combined component for 404 page
 export default function NotFoundPage() {
   return (
-    <div
-      className="w-full h-screen bg-black overflow-x-hidden flex justify-center items-center relative">
+    <div className="w-full h-screen bg-white overflow-x-hidden flex justify-center items-center relative font-['Outfit']">
       <MessageDisplay />
       <CharactersAnimation />
       <CircleAnimation />
@@ -13,9 +15,8 @@ export default function NotFoundPage() {
   );
 }
 
-// 1. Message Display Component
+// Message Display Component
 function MessageDisplay() {
-  // const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -26,61 +27,62 @@ function MessageDisplay() {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleGoHome = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = '/';
+    }
+  };
+
   return (
-    <div
-      className="absolute flex flex-col justify-center items-center w-[90%] h-[90%] z-[100]">
+    <div className="absolute flex flex-col justify-center items-center w-[90%] h-[90%] z-[100]">
       <div
-        className={`flex flex-col items-center transition-opacity duration-500 ${
+        className={`flex flex-col items-center transition-opacity duration-500 font-['Outfit'] ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}>
-        <div className="text-[35px] font-semibold text-black m-[1%]">
+        
+        {/* Medical Icon */}
+        <div className="mb-8 p-6 bg-black/5 rounded-full">
+          <Stethoscope className="w-16 h-16 text-black" />
+        </div>
+
+        {/* Error Message */}
+        <div className="text-4xl md:text-5xl font-bold text-black mb-4">
           Page Not Found
         </div>
-        <div className="text-[80px] font-bold text-black m-[1%]">
+        
+        <div className="text-7xl md:text-8xl font-black text-black mb-6">
           404
         </div>
-        <div className="text-[15px] w-1/2 min-w-[40%] text-center text-black m-[1%]">
-          The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+        
+        <div className="text-lg md:text-xl text-gray-700 max-w-md text-center mb-4 leading-relaxed">
+          The page you're looking for seems to have taken a sick day. Let's get you back to healthy browsing!
         </div>
-        <div className="flex gap-6 mt-8">
-          <button
-            // onClick={() => navigate(-1)}
-            className="text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-300 ease-in-out px-6 py-2 h-auto text-base font-medium flex items-center gap-2 hover:scale-105">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform group-hover:translate-x-1">
-              <path d="m12 19-7-7 7-7" />
-              <path d="M19 12H5" />
-            </svg>
-            Go Back
-          </button>
-          <button
-            // onClick={() => navigate("/")}
-            className="bg-black text-white hover:bg-gray-900 transition-all duration-300 ease-in-out px-6 py-2 h-auto text-base font-medium flex items-center gap-2 hover:scale-105">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform group-hover:translate-x-1">
-              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-            Go Home
-          </button>
+
+        {/* Dental themed message */}
+        <div className="flex items-center gap-2 text-black mb-8 font-semibold">
+          <Heart className="w-5 h-5 text-red-500" />
+          <span>Dr. Dheeraj Naik's Dental Care - Always Here for Your Smile</span>
+        </div>
+
+        {/* Action Button */}
+        <div className="mt-8">
+          <motion.button
+            onClick={handleGoHome}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group flex items-center gap-3 px-12 py-4 bg-black text-white hover:bg-gray-800 transition-all duration-300 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl"
+          >
+            <Home className="w-6 h-6 group-hover:scale-110 transition-transform" />
+            Back to Home
+          </motion.button>
+        </div>
+
+        {/* Contact Info */}
+        <div className="mt-8 text-sm text-gray-600 font-medium">
+          Need dental care? Call us at{' '}
+          <a href="tel:+919876543210" className="text-black hover:text-gray-700 font-bold">
+            +91 98765 43210
+          </a>
         </div>
       </div>
     </div>
