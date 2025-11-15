@@ -279,7 +279,7 @@ const AboutPage = () => {
       specialization: "General & Advanced Dentistry",
       experience: "12+ Years",
       qualifications: "BDS, MDS",
-      avatar: "/doctors/priti.png",
+      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763208416/image-1763044165858_bcntzu.png",
       isFounder: false,
       expertise: ["General Dentistry", "Oral Surgery", "Restorative Procedures", "Preventive Care"],
       description: "Dedicated senior dental surgeon with extensive experience in comprehensive oral health care and advanced dental procedures.",
@@ -912,10 +912,12 @@ const AboutPage = () => {
                       <div className="pt-4 border-t border-gray-100">
                         <Link
                           href={`/about/${member.id}`}
-                          className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg transition-all duration-300 group text-sm font-semibold hover:shadow-lg transform hover:scale-[1.02]"
+                          className="block w-full"
                         >
-                          <span>View Profile</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          <button className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 active:from-blue-800 active:to-purple-800 text-white px-4 py-3 md:py-2 rounded-lg transition-all duration-300 group text-sm font-semibold hover:shadow-lg active:shadow-md transform hover:scale-[1.02] active:scale-[0.98] touch-manipulation cursor-pointer min-h-[44px]">
+                            <span>View Profile</span>
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </button>
                         </Link>
                       </div>
                     </div>

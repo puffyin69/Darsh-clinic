@@ -199,7 +199,7 @@ const DoctorPage = ({ params }) => {
       specialization: "General & Advanced Dentistry",
       experience: "12+ Years",
       qualifications: "BDS, MDS",
-      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763200689/jonathan-borba-W9YEY6G8LVM-unsplash_co5oj5.jpg",
+      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763208416/image-1763044165858_bcntzu.png",
       isFounder: false,
       expertise: ["General Dentistry", "Oral Surgery", "Restorative Procedures", "Preventive Care"],
       description: "Dedicated senior dental surgeon with extensive experience in comprehensive oral health care and advanced dental procedures.",
