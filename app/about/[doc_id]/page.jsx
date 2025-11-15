@@ -7,9 +7,11 @@ import { motion } from "framer-motion";
 import Navigation from "../../../components/Navigation";
 import Footer from "../../../components/Footer";
 import WhatsAppButton from "../../../components/WhatsAppButton";
+import BeforeAfterTestimonial from "../../../components/BeforeAfterTestimonial";
 import { CardSpotlight } from "../../../components/ui/card-spotlight";
 import CountAnimation from "../../../components/count-animation";
 import TextReveal from "../../../components/forgeui/text-reveal";
+import DoctorTimeline from "../../../components/DoctorTimeline";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -147,7 +149,7 @@ const DoctorPage = ({ params }) => {
       specialization: "General & Cosmetic Dentistry",
       experience: "15+ Years",
       qualifications: "BDS, MDS",
-      avatar: "/doctors/dheeraj.jpg",
+      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763200579/dheeraj_mw5zif.jpg",
       isFounder: true,
       expertise: ["General Dentistry", "Cosmetic Dentistry", "Root Canal", "Dental Implants"],
       description: "Visionary leader with 15+ years of excellence in dental care, transforming smiles across Vadodara.",
@@ -197,7 +199,7 @@ const DoctorPage = ({ params }) => {
       specialization: "General & Advanced Dentistry",
       experience: "12+ Years",
       qualifications: "BDS, MDS",
-      avatar: "/doctors/priti.png",
+      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763200689/jonathan-borba-W9YEY6G8LVM-unsplash_co5oj5.jpg",
       isFounder: false,
       expertise: ["General Dentistry", "Oral Surgery", "Restorative Procedures", "Preventive Care"],
       description: "Dedicated senior dental surgeon with extensive experience in comprehensive oral health care and advanced dental procedures.",
@@ -239,7 +241,7 @@ const DoctorPage = ({ params }) => {
       specialization: "General Dentistry",
       experience: "8+ Years",
       qualifications: "BDS",
-      avatar: "/doctors/jhanvi.jpg",
+      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763200586/jhanvi_ny8xrc.jpg",
       isFounder: false,
       expertise: ["General Dentistry", "Oral Health", "Patient Care", "Dental Treatments"],
       description: "Compassionate dental surgeon committed to providing quality dental care with a focus on patient comfort and oral health excellence.",
@@ -276,7 +278,7 @@ const DoctorPage = ({ params }) => {
       specialization: "General Dentistry",
       experience: "7+ Years",
       qualifications: "BDS",
-      avatar: "/doctors/hetal.png",
+      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763200586/hetal_gclnsu.png",
       isFounder: false,
       expertise: ["General Dentistry", "Preventive Care", "Oral Health Education", "Restorative Treatments"],
       description: "Skilled dental surgeon dedicated to maintaining optimal oral health through comprehensive care and patient education.",
@@ -313,7 +315,7 @@ const DoctorPage = ({ params }) => {
       specialization: "General Dentistry",
       experience: "6+ Years",
       qualifications: "BDS",
-      avatar: "/doctors/namrata.png",
+      avatar: "https://res.cloudinary.com/dhgifwjqs/image/upload/v1763200587/namrata_p0eofv.png",
       isFounder: false,
       expertise: ["General Dentistry", "Oral Care", "Patient Treatment", "Dental Health"],
       description: "Professional dental surgeon focused on delivering personalized dental care with attention to detail and patient satisfaction.",
@@ -575,274 +577,29 @@ const DoctorPage = ({ params }) => {
           </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Main Profile */}
-            <div className="lg:col-span-2 space-y-12">
-              {/* About the Doctor */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  About {doctor.name}
-                  <motion.div
-                    animate={{ rotate: [0, 15, -15, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center"
-                  >
-                    <User className="w-4 h-4 text-white" />
-                  </motion.div>
-                </h2>
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
-                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                    {doctor.description}
-                  </p>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <motion.div 
-                      className="text-center p-4 bg-white rounded-lg shadow-sm border border-blue-100"
-                      whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(59, 130, 246, 0.15)" }}
-                    >
-                      <GraduationCap className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-                      <h4 className="font-semibold text-gray-900 mb-1">Qualifications</h4>
-                      <p className="text-gray-600 text-sm">{doctor.qualifications}</p>
-                    </motion.div>
-                    <motion.div 
-                      className="text-center p-4 bg-white rounded-lg shadow-sm border border-purple-100"
-                      whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(147, 51, 234, 0.15)" }}
-                    >
-                      <Clock className="w-6 h-6 text-purple-600 mx-auto mb-2" />
-                      <h4 className="font-semibold text-gray-900 mb-1">Experience</h4>
-                      <p className="text-gray-600 text-sm">{doctor.experience}</p>
-                    </motion.div>
-                    <motion.div 
-                      className="text-center p-4 bg-white rounded-lg shadow-sm border border-green-100"
-                      whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(34, 197, 94, 0.15)" }}
-                    >
-                      <Stethoscope className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                      <h4 className="font-semibold text-gray-900 mb-1">Specialization</h4>
-                      <p className="text-gray-600 text-sm">{doctor.specialization}</p>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-20"
+          >
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Meet {doctor.name}
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              {doctor.description}
+            </p>
+          </motion.div>
 
-              {/* Professional Background */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                  <GraduationCap className="w-6 h-6 text-blue-600" />
-                  Professional Background
-                </h3>
-                <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Education</h4>
-                      <p className="text-gray-700">{doctor.qualifications}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Experience</h4>
-                      <p className="text-gray-700">{doctor.experience} in {doctor.specialization}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Role at Darsh Dental</h4>
-                      <p className="text-gray-700">{doctor.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-8">
-              {/* Expertise */}
-              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <Stethoscope className="w-5 h-5 text-blue-600" />
-                  </motion.div>
-                  Areas of Expertise
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {doctor.expertise.map((skill, index) => (
-                    <motion.span
-                      key={index}
-                      className="px-3 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 rounded-full text-sm font-medium border border-blue-200 cursor-pointer"
-                      whileHover={{ 
-                        scale: 1.1, 
-                        backgroundColor: "#3B82F6", 
-                        color: "#FFFFFF",
-                        boxShadow: "0 4px 15px rgba(59, 130, 246, 0.3)"
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.3 }}
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Special Procedures */}
-              {doctor.specialProcedures && (
-                <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 card-hover hover-glow group">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-purple-600 icon-spin" />
-                    Special Procedures
-                  </h3>
-                  <ul className="space-y-2">
-                    {doctor.specialProcedures.map((procedure, index) => (
-                      <li key={index} className="flex items-center gap-2 text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                        <span className="text-sm">{procedure}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Clinic Hours */}
-              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    <Clock className="w-5 h-5 text-green-600" />
-                  </motion.div>
-                  Clinic Hours
-                </h3>
-                <div className="space-y-3">
-                  <motion.div 
-                    className="flex justify-between items-center py-3 px-3 rounded-lg bg-green-50 border border-green-200"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <span className="text-sm font-medium text-gray-900 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      Monday - Saturday
-                    </span>
-                    <div className="text-right">
-                      <div className="text-sm text-gray-600">9:30 AM - 1:00 PM</div>
-                      <div className="text-sm text-gray-600">4:30 PM - 8:00 PM</div>
-                    </div>
-                  </motion.div>
-                  <motion.div 
-                    className="flex justify-between items-center py-3 px-3 rounded-lg bg-red-50 border border-red-200"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <span className="text-sm font-medium text-gray-900 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      Sunday
-                    </span>
-                    <span className="text-sm text-red-600 font-medium">Closed</span>
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Languages */}
-              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <Users className="w-5 h-5 text-indigo-600" />
-                  </motion.div>
-                  Languages Spoken
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {doctor.languages?.map((lang, index) => (
-                    <motion.span
-                      key={index}
-                      className="px-3 py-2 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 rounded-full text-sm font-medium border border-gray-300 cursor-pointer"
-                      whileHover={{ 
-                        scale: 1.05,
-                        backgroundColor: "#6366F1",
-                        color: "#FFFFFF",
-                        boxShadow: "0 4px 12px rgba(99, 102, 241, 0.3)"
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.15, duration: 0.4 }}
-                    >
-                      {lang}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Clinic Contact */}
-              <motion.div 
-                className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-100 space-y-4 hover:shadow-xl transition-all duration-300"
-                whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)" }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h3 className="text-lg font-bold text-gray-900 mb-4 text-center flex items-center justify-center gap-2">
-                  <motion.div
-                    animate={{ y: [0, -3, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <Building className="w-5 h-5 text-purple-600" />
-                  </motion.div>
-                  Visit Darsh Dental Clinic
-                </h3>
-                <div className="text-center space-y-3">
-                  <motion.p 
-                    className="text-gray-600 text-sm"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                  >
-                    Our team of expert dentists works together to provide comprehensive care
-                  </motion.p>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href="/contact"
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold text-center block shadow-lg hover:shadow-xl"
-                    >
-                      📅 Book Appointment
-                    </Link>
-                  </motion.div>
-                  <div className="flex gap-2">
-                    <motion.a
-                      href="tel:+919428305428"
-                      className="flex-1 bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-2 rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 font-semibold text-center block shadow-lg hover:shadow-xl text-sm"
-                      whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(34, 197, 94, 0.3)" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      📞 Call
-                    </motion.a>
-                    <motion.a
-                      href="https://wa.me/919428305428"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-4 py-2 rounded-lg hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 font-semibold text-center flex items-center justify-center gap-1 shadow-lg hover:shadow-xl text-sm"
-                      whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(16, 185, 129, 0.3)" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      WhatsApp
-                    </motion.a>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+          {/* Doctor Timeline Component */}
+          <DoctorTimeline doctor={doctor} />
         </div>
       </section>
+
+      {/* Before & After Testimonials Section */}
+      <BeforeAfterTestimonial />
 
       <Footer />
       <WhatsAppButton />

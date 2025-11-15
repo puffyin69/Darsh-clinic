@@ -1,4 +1,5 @@
 import Navigation from "../components/Navigation";
+import HeroSection from "../components/HeroSection";
 import UnifiedDentalServices from "../components/UnifiedDentalServices";
 import TechnologySection from "../components/TechnologySection";
 import TrustSection from "../components/TrustSection";
@@ -8,7 +9,6 @@ import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import SmoothScroll from "../components/ui/SmoothScroll";
 import { ReactLenis } from "lenis/react";
-import { HeroParallax } from "../components/ui/hero-parallax";
 import StaggeredFAQSection from "../components/ruixen/staggered-faq-section";
 import Image from "next/image";
 
@@ -213,8 +213,8 @@ export default function Home() {
           <div className="min-h-screen bg-white">
             <Navigation />
 
-            {/* Hero Parallax Section */}
-            <HeroParallax products={heroProducts} />
+            {/* Hero Section */}
+            <HeroSection />
 
             {/* Wave Divider */}
             <div className="relative w-full bg-gray-50">
